@@ -1,0 +1,23 @@
+## -------------------------
+## APP
+## -------------------------
+spring:
+  application:
+    name: subscriber
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url:
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+server:
+  port: 8081
+nats:
+  url:
+  subject:
+  group:
+  consumer: nebula-logger

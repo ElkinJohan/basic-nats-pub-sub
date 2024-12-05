@@ -1,0 +1,35 @@
+controller:
+  properties:
+    base-path: /events
+spring:
+  application:
+    name: publisher
+server:
+  port: 9999
+## -------------------------
+## CONFIG NATS
+## -------------------------
+nats:
+  url: localhost:4222
+  maxReconnects: -1
+  secondsReconnectWait: 10
+  subjectLogger: nebula.loggerV1_1_0
+
+## -------------------------
+## BUSINESS ERROR
+## -------------------------
+errors.business-error.code: 1050
+errors.business-error.http-code: 400
+errors.business-error.http-description: Business Error
+errors.business-error.message: Business Error
+errors.business-error.detail: Error in request
+errors.business-error.category: INVALID_REQUEST
+## -------------------------
+## BAD REQUEST
+## -------------------------
+errors.bad-arguments.code: 1050
+errors.bad-arguments.http-code: 400
+errors.bad-arguments.http-description: Bad Request
+errors.bad-arguments.message: Client Error
+errors.bad-arguments.detail: The arguments provided are incorrect
+errors.bad-arguments.category: EXTERNAL_ERROR
