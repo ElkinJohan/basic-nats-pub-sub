@@ -2,6 +2,7 @@ package co.com.telefonica.prepago.publisher.resource;
 
 import co.com.telefonica.prepago.publisher.dto.RequestMessageDto;
 import co.com.telefonica.prepago.publisher.dto.SubjectLoggerDTO;
+import co.com.telefonica.prepago.publisher.dto.SubjectLoggerV100;
 import co.com.telefonica.prepago.publisher.service.NatsPublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +31,10 @@ public class EventController {
     public void publishLoggerSubject(@RequestBody SubjectLoggerDTO event) {
        // event.setTransactionId(UUID.randomUUID());
         natsPublisher.publishLogger(event);
+    }
+    @PostMapping("/loggerV100")
+    public void publishLoggerSubjectV100(@RequestBody SubjectLoggerV100 event) {
+        // event.setTransactionId(UUID.randomUUID());
+        natsPublisher.publishLoggerV100(event);
     }
 }

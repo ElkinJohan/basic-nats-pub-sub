@@ -5,15 +5,17 @@ spring:
   application:
     name: publisher
 server:
-  port: 9999
+  port: 9900
 ## -------------------------
 ## CONFIG NATS
 ## -------------------------
 nats:
+  #url: nats://
   url: localhost:4222
   maxReconnects: -1
   secondsReconnectWait: 10
   subjectLogger: nebula.loggerV1_1_0
+  subjectLoggerV100: nebula.logger
 
 ## -------------------------
 ## BUSINESS ERROR

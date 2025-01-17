@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,10 +28,11 @@ public class SubjectLoggerDTO {
     private Map<String, Object> request;
     @JsonSerialize
     private Map<String, Object> response;
-    private long duration;
+    private double duration;
     private String subscriberNumber;
     private String originUrl;
     private Boolean status;
+    private OffsetDateTime dateLogger;
     private String hash;
 
     // Método para generar el hash
