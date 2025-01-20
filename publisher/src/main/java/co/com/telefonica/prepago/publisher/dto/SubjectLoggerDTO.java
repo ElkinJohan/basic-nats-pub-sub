@@ -32,7 +32,7 @@ public class SubjectLoggerDTO {
     private String subscriberNumber;
     private String originUrl;
     private Boolean status;
-    private OffsetDateTime dateLogger;
+    private OffsetDateTime date;
     private String hash;
 
     // Método para generar el hash
