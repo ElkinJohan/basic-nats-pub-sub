@@ -35,12 +35,10 @@ public class SubjectLoggerDTO {
     private OffsetDateTime date;
     private String hash;
 
-    // Método para generar el hash
     public String generateHash() throws NoSuchAlgorithmException, IOException {
 
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
 
-        // Construir la cadena a hashear
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(transactionId)
                 .append(originService)
@@ -49,10 +47,8 @@ public class SubjectLoggerDTO {
                 .append(originUrl)
                 .append(status);
 
-        // Obtener el byte del hash
         byte[] hashBytes = digest.digest(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
 
-        // Convertir a formato hexadecimal
         StringBuilder hexString = new StringBuilder();
         for (byte b : hashBytes) {
             String hex = Integer.toHexString(0xff & b);
@@ -63,7 +59,6 @@ public class SubjectLoggerDTO {
 
     }
 
-    // Método para convertir el Map a String (opcional)
     private String convertMapToString(Map<String, Object> map) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(map);
